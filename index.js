@@ -20,8 +20,6 @@ app.use(express.json());
 app.use(cors(
     {
         origin: "https://senai2023-tcc-frontend.vercel.app/",
-        //origin: "http://localhost:3000",
-
         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
