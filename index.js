@@ -19,7 +19,9 @@ const port = 3007;
 app.use(express.json());
 app.use(cors(
     {
-        origin: "http://localhost:3000",
+        origin: "https://senai2023-tcc-frontend.vercel.app/",
+        //origin: "http://localhost:3000",
+
         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
