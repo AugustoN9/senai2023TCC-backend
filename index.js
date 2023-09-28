@@ -16,13 +16,14 @@ const exame = require("./src/router/exame.router");
 const app = express();
 const port = 3007;
 
-app.use(express.json());
-app.use(cors(
-    {
-        origin: "https://senai2023-tcc-frontend.vercel.app/",
-        methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
-    }
-));
+// app.use(express.json());
+// app.use(cors(
+//     {
+//         origin: "https://senai2023-tcc-frontend.vercel.app/",
+//         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
+//     }
+// ));
+app.use(cors());
 
 
 app.post("/login", async (req, res ) => {
