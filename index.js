@@ -16,7 +16,13 @@ const exame = require("./src/router/exame.router");
 const app = express();
 const port = 3007;
 
-app.use(cors());
+const corsOptions = {
+    optionsSuccessStatus: 200, // For legacy browser support
+    credentials: true, // This is important.
+    origin: "https://senai2023-tcc-frontend.vercel.app/",
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
