@@ -14,8 +14,7 @@ const paciente = require("./src/router/paciente.router");
 const exame = require("./src/router/exame.router");
 
 const app = express();
-//const port = 3007;
-const port = '';
+const port = 3007;
 
 const corsOptions = {
     optionsSuccessStatus: 200, // For legacy browser support
