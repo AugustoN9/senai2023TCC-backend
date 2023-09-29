@@ -18,14 +18,10 @@ const port = 3007;
 
 app.use(cors(
     {
-        "origin": "*",
-        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-        "preflightContinue": false,
-        "optionsSuccessStatus": 204
-        // optionsSuccessStatus: 200, // For legacy browser support
-        // credentials: true, // This is important.
-        // origin: "https://senai2023-tcc-frontend.vercel.app/",
-        // methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
+        optionsSuccessStatus: 200, // For legacy browser support
+        credentials: true, // This is important.
+        origin: "https://senai2023-tcc-frontend.vercel.app",
+        methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
 
