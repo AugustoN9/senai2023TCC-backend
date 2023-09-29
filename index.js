@@ -16,22 +16,26 @@ const exame = require("./src/router/exame.router");
 const app = express();
 const port = 3007;
 
-const corsOptions = {
-    optionsSuccessStatus: 200, // For legacy browser support
-    credentials: true, // This is important.
-    origin: "https://senai2023-tcc-frontend.vercel.app/",
-};
+app.use(cors(
+    {
+        optionsSuccessStatus: 200, // For legacy browser support
+        credentials: true, // This is important.
+        origin: "https://senai2023-tcc-frontend.vercel.app/",
+        methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
+    }
+));
 
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     optionsSuccessStatus: 200, // For legacy browser support
+//     credentials: true, // This is important.
+//     origin: "https://senai2023-tcc-frontend.vercel.app/",
+// };
+
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 
-// app.use(cors(
-//     {
-//         origin: "https://senai2023-tcc-frontend.vercel.app/",
-//         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
-//     }
-// ));
+
 
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "https://senai2023-tcc-frontend.vercel.app/");
