@@ -14,14 +14,13 @@ const paciente = require("./src/router/paciente.router");
 const exame = require("./src/router/exame.router");
 
 const app = express();
-const port = 3000;
+const port = 3007;
 
 app.use(cors(
     {
         optionsSuccessStatus: 200, // For legacy browser support
         credentials: true, // This is important.
-        origin: ["https://senai2023-tcc-frontend.vercel.app",
-                 "http://localhost:3000"],
+        origin: "https://senai2023-tcc-frontend.vercel.app",
         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
