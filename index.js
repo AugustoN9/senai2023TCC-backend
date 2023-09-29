@@ -20,7 +20,8 @@ app.use(cors(
     {
         optionsSuccessStatus: 200, // For legacy browser support
         credentials: true, // This is important.
-        origin: "https://senai2023-tcc-frontend.vercel.app",
+        origin: ["https://senai2023-tcc-frontend.vercel.app",
+                 "http://localhost:3000"],
         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
