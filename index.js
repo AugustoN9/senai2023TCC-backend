@@ -103,9 +103,7 @@ app.get("/", (req,res) => {
     })
 })
 
-// app.listen(port, () => {
-//     console.log(`Servidor rodando em: http://localhost:${port}`);
-// })
 app.listen(port, () => {
-    console.log(`Servidor rodando em: http://localhost:`);
+    console.log(`Servidor rodando em: http://localhost:${port}`);
 })
+
