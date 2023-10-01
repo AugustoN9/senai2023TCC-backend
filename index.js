@@ -16,6 +16,8 @@ const exame = require("./src/router/exame.router");
 const app = express();
 const port = 3007;
 
+app.use(express.json());
+
 app.use(cors(
     {
         optionsSuccessStatus: 200, // For legacy browser support
@@ -39,7 +41,7 @@ app.use(function(req, res, next) {
 
 // app.use(cors(corsOptions));
 
-app.use(express.json());
+
 
 
 
