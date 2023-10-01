@@ -25,6 +25,11 @@ app.use(cors(
     }
 ));
 
+app.get('/cors', (req, res) => {
+res.set('Access-Control-Allow-Origin', '*');
+res.send({ "msg": "This has CORS enabled 🎈" })
+})
+
 // const corsOptions = {
 //     optionsSuccessStatus: 200, // For legacy browser support
 //     credentials: true, // This is important.
