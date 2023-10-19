@@ -18,19 +18,20 @@ const port = 3007;
 
 app.use(express.json());
 
-app.use(cors(
-    {
-        optionsSuccessStatus: 200, // For legacy browser support
-        credentials: true, // This is important.
-        origin: "https://exactapatho.netlify.app",
-        methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
-    }
-));
+// app.use(cors(
+//     {
+//         optionsSuccessStatus: 200, // For legacy browser support
+//         credentials: true, // This is important.
+//         origin: "https://exactapatho.netlify.app",
+//         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
+//     }
+// ));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", 'GET, POST, PUT, PATCH, DELETE');
+    app.use(cors());
+    next();
 });
 
 // const corsOptions = {
