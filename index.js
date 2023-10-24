@@ -28,7 +28,7 @@ const port = 3007;
 
 app.use(cors(
     {
-        origin: "https://senai2023-tcc-frontend.vercel.app/",
+        origin: "https://senai2023-tcc-frontend-55omv1boc-auguston9.vercel.app/",
         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ))
