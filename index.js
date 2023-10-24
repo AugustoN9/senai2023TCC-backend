@@ -17,14 +17,22 @@ const app = express();
 const port = 3007;
 
 
+// app.use(cors(
+//     {
+//         optionsSuccessStatus: 200, // For legacy browser support
+//         credentials: true, // This is important.
+//         origin: "https://exactapatho.netlify.app",
+//         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
+//     }
+// ));
+
 app.use(cors(
     {
-        optionsSuccessStatus: 200, // For legacy browser support
-        credentials: true, // This is important.
         origin: "https://exactapatho.netlify.app",
         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
-));
+))
+app.options('*', cors())
 
 // app.use(cors(
 //     {
