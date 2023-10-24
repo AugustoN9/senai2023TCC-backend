@@ -28,7 +28,7 @@ const port = 3007;
 
 app.use(cors(
     {
-        origin: "https://exactapatho.netlify.app",
+        origin: "https://senai2023-tcc-frontend.vercel.app/",
         methods:["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ))
