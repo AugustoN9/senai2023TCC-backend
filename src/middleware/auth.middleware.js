@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
     const parts = authHeader.split(" "); //["Bearer, <token>"]
 
     if (parts.length !== 2) {
-        return res.status(401).send({ message: "O token invalido!" });
+        return res.status(401).send({ message: "O token invalido! problema parts" });
     }
 
     const [schema, token] = parts;
@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
 
     jwt.verify(token, process.env.SECRET, async (err, decoded) => {
         if (err) {
-            return res.status(500).send({ message: "O token invalido!" });
+            return res.status(500).send({ message: "O token invalido! erro decoded" });
         }
 
         const user = await findUserByIdService(decoded.id);

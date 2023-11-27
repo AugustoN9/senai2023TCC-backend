@@ -1,8 +1,8 @@
-const exameService = require("../service/exame.service");
+const laudoService = require("../service/laudo.service");
 
-const findExameByIdController = async (req, res) => {
+const findLaudoByIdController = async (req, res) => {
     try {
-        const exame = await exameService.findExameByIdService(req.params.id);
+        const exame = await laudoService.findLaudoByIdService(req.params.id);
 
         if (!exame) {
             return res.status(404).send({ message: "Exame não encontrado, tente novamente" });
@@ -17,9 +17,9 @@ const findExameByIdController = async (req, res) => {
     }
 };
 
-const findAllExameController = async (req, res) => {
+const findAllLaudoController = async (req, res) => {
     try {
-        res.status(200).send(await exameService.findAllExameService(req.query.limit, req.query.offset));
+        res.status(200).send(await laudoService.findAllLaudoService(req.query.limit, req.query.offset));
     }
     catch (err) {
         console.log(`erro: ${err.message}`);
@@ -27,15 +27,15 @@ const findAllExameController = async (req, res) => {
     }
 };
 
-const createExameController = async (req, res) => {
+const createLaudoController = async (req, res) => {
     try {
         const body = req.body;
-        if (!body.tipoExame) {
+        if (!body.macroscopia) {
             return res.status(400).send({
-                message: `O campo 'Tipo de Exame' precisa ser preenchido! `
+                message: `O campo 'macroscopia' precisa ser preenchido! `
             });
         }
-        return res.status(201).send(await exameService.createExameService(body));
+        return res.status(201).send(await laudoService.createLaudoService(body));
     }
     catch (err) {
         res.status(500).send({ Message: `Erro inesperado tente novamente! ` });
@@ -43,15 +43,15 @@ const createExameController = async (req, res) => {
     }
 };
 
-const updateExameController = async (req, res) => {
+const updateLaudoController = async (req, res) => {
     try {
         const body = req.body;
-        if (!body.tipoExame) {
+        if (!body.macroscopia) {
             return res.status(400).send({
-                message: `O campo 'Tipo de Exame' precisa ser preenchido! `
+                message: `O campo 'macroscopia' precisa ser preenchido! `
             });
         }
-        return res.send(await exameService.updateExameService(req.params.id, body));
+        return res.send(await laudoService.updateLaudoService(req.params.id, body));
     }
     catch (err) {
         res.status(500).send({ Message: `Erro inesperado tente novamente! ` });
@@ -59,12 +59,12 @@ const updateExameController = async (req, res) => {
     }
 };
 
-const removeExameController = async (req, res) => {
+const removeLaudoController = async (req, res) => {
     try {
 
-        const delPaciente = await exameService.removeExameService(req.params.id);
+        const delLaudo = await laudoService.removeLaudoService(req.params.id);
 
-        if (delPaciente == null) {
+        if (delLaudo == null) {
             res.status(404).send({ Message: `Exame náo encontrado, tente novamente! ` });
         }
         else {
@@ -80,9 +80,9 @@ const removeExameController = async (req, res) => {
 
 
 module.exports = {
- findAllExameController,
- findExameByIdController,
- createExameController,
- updateExameController,
- removeExameController
+ findAllLaudoController,
+ findLaudoByIdController,
+ createLaudoController,
+ updateLaudoController,
+ removeLaudoController
 }

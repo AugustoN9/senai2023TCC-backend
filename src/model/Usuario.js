@@ -3,23 +3,20 @@ const bcrypt = require("bcrypt");
 
 const UsuarioSchema = new mongoose.Schema({
     nome: { type: String, required: true },
-    cpf: { type: String, required: true },
     email: { type: String, unique: true, required: true },
     senha: { type: String, required: true },
-    imagem: { type: String, required: false },
-    tipo: { type: String, required: false },
+    imagem: { type: String, required: false },  
+    categoria: { type: String, required: false }, 
+    profissao: { type: String, required: true },
+    especializacao: { type: String, required: false },
+    tipoDoc: { type: String, required: false },
+    numeroDoc: { type: Number, unique: true, required: false },
     createdAt: { type: Date, required: true, default: Date.now() },
-    
-    // exames: [
-    //     {
-    //         _id: { type: mongoose.Schema.Types.ObjectId, required: true, unique: true, ref:"exames"},
-    //         createdAt: { type: Date, required: true, default: Date.now() }, 
-    //     }
-    // ],
-    
+
+
     admin: { type: Boolean, default: false },
     ativo: { type: Boolean, default: false }
-    
+  
 });
 
 UsuarioSchema.pre("save", async function(next){
@@ -35,8 +32,6 @@ UsuarioSchema.pre("findOneAndUpdate", async function(next){
     }
     next();
 });
-
-
 
 const Usuario = mongoose.model("usuarios", UsuarioSchema);
 

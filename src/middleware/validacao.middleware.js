@@ -25,19 +25,6 @@ const validaUsuario = (req, res, next) => {
     if (!req.body.nome) {
         erros.push("nome");
     }
-    if (!req.body.email) {
-        erros.push("email");
-    }
-    if (!req.body.senha) {
-        erros.push("senha");
-    }
-    if (!req.body.imagem) {
-        erros.push("imagem");
-    }
-    if (req.body.admin == undefined) {
-        erros.push("admin");
-    }
-
     if (erros.length == 0) {
         return next();
     }
@@ -46,7 +33,7 @@ const validaUsuario = (req, res, next) => {
             return res.status(400).send({ message: `Os campos ${erros} precisam ser preenchidos!` });
         }
         else {
-            return res.status(400).send({ message: `O campo ${erros} precisa ser preenchido!` });
+            return res.status(400).send({ message: `O campo ${erros} precisa ser preenchido! linha 36` });
         }
     }
 }
